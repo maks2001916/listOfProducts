@@ -1,35 +1,38 @@
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.Set;
 
 public class Recipes
 {
-    private Set<Product> products;
+    private HashMap<Product, String> products;
     private int sumPrice;
-    private String title;
+    private int title;
 
-    public void addProduct(Product product, String title) {
-        sumPrice = sumPrice + product.getPrice();
-        products.add(product);
-        if (products.contains(title) == false) {
-            this.title = title;
+    public void addProduct(Product product, int qualit) {
+        if (qualit < 1) {
+            qualit = 1;
+        }
+        sumPrice = (sumPrice + product.getPrice()) * qualit;
+        if (products.get(product) == product.getName()) {
+            this.products = products;
         } else {
             throw new RuntimeException("рецепт с таким названием уже есть");
         }
     }
 
-
-
-
-
-    public Set<Product> getProducts() {
+    public HashMap<Product, String> getProducts() {
         return products;
+    }
+
+    public void setProducts(HashMap<Product, String> products) {
+        this.products = products;
     }
 
     public int getSumPrice() {
         return sumPrice;
     }
 
-    public String getTitle() {
+    public int getTitle() {
         return title;
     }
 
