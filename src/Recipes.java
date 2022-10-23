@@ -13,7 +13,7 @@ public class Recipes
             qualit = 1;
         }
         sumPrice = (sumPrice + product.getPrice()) * qualit;
-        if (products.get(product) == product.getName()) {
+        if (products.get(product).equals(product.getName())) {
             this.products = products;
         } else {
             throw new RuntimeException("рецепт с таким названием уже есть");
