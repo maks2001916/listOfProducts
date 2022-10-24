@@ -4,29 +4,29 @@ import java.util.Set;
 
 public class Recipes
 {
-    private HashMap<Product, String> products;
+    private HashMap<Product, Integer> products;
     private int sumPrice;
     private int title;
 
-    public void addProduct(Product product, int qualit) {
-        String sQualit = "";
-        if (qualit < 1) {
-            qualit = 1;
+    public void addProduct(Product product, int quantity) {
+        Integer sQuantity = 0;
+        if (quantity < 1) {
+            quantity = 1;
         }
-        sumPrice = (sumPrice + product.getPrice()) * qualit;
+        sumPrice += product.getPrice() * quantity;
         if (products.get(product).equals(product.getName())) {
             throw new RuntimeException("продукт с таким названием уже есть");
         } else {
-            sQualit.valueOf(qualit);
-            products.put(product, sQualit);
+            sQuantity.valueOf(quantity);
+            products.put(product, sQuantity);
         }
     }
 
-    public HashMap<Product, String> getProducts() {
+    public HashMap<Product, Integer> getProducts() {
         return products;
     }
 
-    public void setProducts(HashMap<Product, String> products) {
+    public void setProducts(HashMap<Product, Integer> products) {
         this.products = products;
     }
 

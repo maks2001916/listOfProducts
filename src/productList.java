@@ -3,13 +3,13 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class List {
+public class productList {
     private Product product;
 
     Set<Product> set = new HashSet<>();
 
-    public void setProduct(Product product) {
-        if (set.contains(product) == false) {
+    public void addProduct(Product product) {
+        if (!set.contains(product)) {
             set.add(product);
         } else {
             throw new RuntimeException("продукт уже содержится в корзине");
@@ -20,7 +20,7 @@ public class List {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        List list = (List) o;
+        productList list = (productList) o;
         return Objects.equals(product, list.product) && Objects.equals(set, list.set);
     }
 
