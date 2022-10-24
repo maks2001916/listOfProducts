@@ -9,14 +9,16 @@ public class Recipes
     private int title;
 
     public void addProduct(Product product, int qualit) {
+        String sQualit = "";
         if (qualit < 1) {
             qualit = 1;
         }
         sumPrice = (sumPrice + product.getPrice()) * qualit;
         if (products.get(product).equals(product.getName())) {
-            this.products = products;
+            throw new RuntimeException("продукт с таким названием уже есть");
         } else {
-            throw new RuntimeException("рецепт с таким названием уже есть");
+            sQualit.valueOf(qualit);
+            products.put(product, sQualit);
         }
     }
 
