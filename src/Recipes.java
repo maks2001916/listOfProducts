@@ -8,14 +8,14 @@ public class Recipes
     private int sumPrice;
     private int title;
 
-    public void addProduct(Product product, int quantity) {
+    public void addProduct(Product product, int quantity) throws WrongProductException {
         Integer sQuantity = 0;
         if (quantity < 1) {
             quantity = 1;
         }
         sumPrice += product.getPrice() * quantity;
         if (products.get(product).equals(product.getName())) {
-            throw new RuntimeException("продукт с таким названием уже есть");
+            throw new WrongProductException("продукт с таким названием уже есть");
         } else {
             sQuantity.valueOf(quantity);
             products.put(product, sQuantity);
