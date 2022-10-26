@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class productList {
+public class ProductList {
     private Product product;
 
     Set<Product> set = new HashSet<>();
@@ -20,7 +20,7 @@ public class productList {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        productList list = (productList) o;
+        ProductList list = (ProductList) o;
         return Objects.equals(product, list.product) && Objects.equals(set, list.set);
     }
 
